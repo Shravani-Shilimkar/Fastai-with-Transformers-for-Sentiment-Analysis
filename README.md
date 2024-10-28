@@ -2,6 +2,8 @@
 
 Fastai with HuggingFace 🤗Transformers (BERT, RoBERTa, XLNet, XLM, DistilBERT)
 
+![fastai-transformers-1](https://github.com/user-attachments/assets/d6d93e19-f4b9-4dc4-8767-8f07cb2b009c)
+
 N.B. This implementation is a supplement of the Medium article "Fastai with 🤗Transformers (BERT, RoBERTa, XLNet, XLM, DistilBERT)".
 
 Also, remember the upvote button is next to the fork button, and it's free too! 😉
