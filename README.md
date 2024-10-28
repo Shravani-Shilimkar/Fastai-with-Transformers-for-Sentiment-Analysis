@@ -25,6 +25,30 @@ Keita Kurita's article A Tutorial to Fine-Tuning BERT with Fast AI which makes p
 Dev Sharma's article Using RoBERTa with Fastai for NLP which makes pytorch_transformers library compatible with fastai.
 Although these articles are of high quality, some part of their demonstration is not anymore compatible with the last version of transformers.
 
+
 🛠 Integrating transformers with fastai for multiclass classification
 
 Before beginning the implementation, note that integrating transformers within fastai can be done in multiple different ways. For that reason, I decided to bring simple solutions, that are the most generic and flexible. More precisely, I try to make the minimum of modification in both libraries while making them compatible with the maximum amount of transformer architectures.
+
+🎬 The example task
+The chosen task is a multi-class text classification on Movie Reviews.
+
+For each text movie review, the model has to predict a label for the sentiment. We evaluate the outputs of the model on classification accuracy. The sentiment labels are:
+
+0 → Negative
+1 → Somewhat negative
+2 → Neutral
+3 → Somewhat positive
+4 → Positive
+
+
+Main transformers classes:
+In transformers, each model architecture is associated with 3 main types of classes:
+
+A model class to load/store a particular pre-train model.
+A tokenizer class to pre-process the data and make it compatible with a particular model.
+A configuration class to load/store the configuration of a particular model.
+For example, if you want to use the Bert architecture for text classification, you would use BertForSequenceClassification for the model class, BertTokenizer for the tokenizer class and BertConfig for the configuration class. 
+
+In order to switch easily between classes  -  each related to a specific model type  -  I created a dictionary that allows loading the correct classes by just specifying the correct model type name.
+
